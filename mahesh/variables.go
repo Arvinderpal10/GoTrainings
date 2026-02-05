@@ -1,3 +1,8 @@
+package main
+import "fmt"
+
+
+
 // Q1. Declare an integer variable x with value 200 and print it.
 
 // var x int
