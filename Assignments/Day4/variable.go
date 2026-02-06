@@ -41,28 +41,28 @@
 
 package main
 
-//import "fmt"
+import "fmt"
 
 func main() {
 
 	// 1. and 2.
-	/*
-		var a int8 = 127
-		fmt.Println(a)
-		var b int16 = 32767
-		fmt.Println(b)
-		var c int32 = 2147483647
-		fmt.Println(c)
-		var d int64 = 9223372036854775807
-		fmt.Println(d)
-		var e uint8 = 255
-		fmt.Println(e)
-		var f uint16 = 65535
-		fmt.Println(f)
-		var g uint32 = 4294967295
-		fmt.Println(g)
-		var h uint64 = 18446744073709551615
-		fmt.Println(h) */
+
+	var a int8 = 127
+	fmt.Println(a)
+	var b int16 = 32767
+	fmt.Println(b)
+	var c int32 = 2147483647
+	fmt.Println(c)
+	var d int64 = 9223372036854775807
+	fmt.Println(d)
+	var e uint8 = 255
+	fmt.Println(e)
+	var f uint16 = 65535
+	fmt.Println(f)
+	var g uint32 = 4294967295
+	fmt.Println(g)
+	var h uint64 = 18446744073709551615
+	fmt.Println(h)
 	// 2.
 	/*var x uint8 = 255
 	  fmt.Println("Before overflow:", x)
@@ -76,7 +76,7 @@ func main() {
 	fmt.Printf("float32 (1/3) = %.10f\n", f32)
 	fmt.Printf("float64 (1/3) = %.10f\n", f64)*/
 
-	// 4.
+	//4.
 	/*var b1 bool = true
 	var b2 bool = false
 	fmt.Println("Bool 1:", b1)
