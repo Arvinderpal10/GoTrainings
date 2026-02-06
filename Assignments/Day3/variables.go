@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+//import "fmt"
 
 //var salary = 10000
 
@@ -192,7 +192,7 @@ func main() {
 }*/
 
 // Q20 solution
-func main() {
+/*func main() {
 	var i int
 	var f float64
 	var s string
@@ -206,4 +206,4 @@ func main() {
 	fmt.Println("slice=", sl)
 	fmt.Println("pointer=", p)
 
-}
+}*/
