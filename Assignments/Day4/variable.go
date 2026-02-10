@@ -1,12 +1,11 @@
 package main
 
 import (
+	//"GoTrainings/exportunexport"
 	"fmt"
 	"math"
 	"unsafe"
 )
-
-//import "GoTrainings/exportunexport"
 
 // Function returning a VALUE //5 answer
 func returnValue() int {
@@ -131,7 +130,7 @@ func main() {
 	fmt.Println(a1)
 	fmt.Println(*b1) //&Address-of operator (gives address), Dereference operator (gives value at address)
 	//6 unsafe.Sizeof() returns How many bytes the variable x occupies in memory.
-	fmt.Println("Size of int8:", unsafe.Sizeof(int8(0)))
+	fmt.Println("Size of int8:", unsafe.Sizeof(int8(1)))
 	fmt.Println("Size of int16:", unsafe.Sizeof(int16(0)))
 	fmt.Println("Size of int32:", unsafe.Sizeof(int32(0)))
 	fmt.Println("Size of int64:", unsafe.Sizeof(int64(0)))

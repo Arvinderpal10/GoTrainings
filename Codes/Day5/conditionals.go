@@ -20,12 +20,12 @@ func main() {
 
 
 	*/
-
-	// if age >= 18 {
-	// 	fmt.Println("Eligible to vote")
-	// } else {
-	// 	fmt.Println("You are still young.")
-	// }
+	age := 20
+	if age >= 18 {
+		fmt.Println("Eligible to vote")
+	} else {
+		fmt.Println("You are still young.")
+	}
 
 	//
 	// fmt.Println("You are still young.")
