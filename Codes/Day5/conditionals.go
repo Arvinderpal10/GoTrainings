@@ -144,14 +144,13 @@ func main() {
 		fmt.Println("Park is open for extended hours")
 	}
 	// 8. COMMON PATTERN: GUARD CLAUSE
-	fmt.Println("\n8. Guard clause pattern:")
-	username := ""
+	//fmt.Println("\n8. Guard clause pattern:")
+	//username := ""
 
-	if username == "" {
-		fmt.Println("Error: Username cannot be empty")
-		return // Early exit - no need for else
-	}
+	// if username == " " {
+	// 	fmt.Println("Error: Username cannot be empty")
+	// 	return // Early exit - no need for else
+	//}
 	// Rest of the code runs only if username is not empty
-	fmt.Printf("Welcome, %s!\n", username)
-
+	//fmt.Printf("Welcome, %s!\n", username)
 }
