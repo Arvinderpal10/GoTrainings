@@ -285,7 +285,6 @@ func main() {
 	// 2. T/F: Switch cases in Go are case-sensitive for strings
 
 	fmt.Println("2 → True")
-	fmt.Println("2 → True")
 
 	// 3. T/F: You can use float values in switch cases
 
