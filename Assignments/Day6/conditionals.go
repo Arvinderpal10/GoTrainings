@@ -128,33 +128,33 @@ func main() {
 	// - IX → 9
 	// - X → 10
 	// For invalid input → "Invalid Roman numeral"
-	var roman string
-	fmt.Println("Enter a Roman Number: ")
-	fmt.Scan(&roman)
-	switch roman {
-	case "I":
-		fmt.Println("1")
-	case "II":
-		fmt.Println("2")
-	case "III":
-		fmt.Println("3")
-	case "IV":
-		fmt.Println("4")
-	case "V":
-		fmt.Println("5")
-	case "VI":
-		fmt.Println("6")
-	case "VII":
-		fmt.Println("7")
-	case "VIII":
-		fmt.Println("8")
-	case "IX":
-		fmt.Println("9")
-	case "X":
-		fmt.Println("10")
-	default:
-		fmt.Println("Invalid Roman numeral")
-	}
+	// var roman string
+	// fmt.Println("Enter a Roman Number: ")
+	// fmt.Scan(&roman)
+	// switch roman {
+	// case "I":
+	// 	fmt.Println("1")
+	// case "II":
+	// 	fmt.Println("2")
+	// case "III":
+	// 	fmt.Println("3")
+	// case "IV":
+	// 	fmt.Println("4")
+	// case "V":
+	// 	fmt.Println("5")
+	// case "VI":
+	// 	fmt.Println("6")
+	// case "VII":
+	// 	fmt.Println("7")
+	// case "VIII":
+	// 	fmt.Println("8")
+	// case "IX":
+	// 	fmt.Println("9")
+	// case "X":
+	// 	fmt.Println("10")
+	// default:
+	// 	fmt.Println("Invalid Roman numeral")
+	// }
 
 	fmt.Println("Q5. Banking Transaction System")
 	// Simulate banking operations:
