@@ -146,7 +146,7 @@ func main() {
 		y1 := 100
 		fmt.Println(y1)
 	}
-	//fmt.Println(y1) //compile time error because y1 is not accessible outside the block
+	//fmt.Println(y1) //compile time error because y1 is not accessible outside the block (\variables.go:149:14: undefined: y1)
 	//9
 	fmt.Println(salary)
 	//10varUse()
@@ -172,7 +172,7 @@ func main() {
 	//18
 	x2, y2 := 5, 10
 	fmt.Println(x2, y2)
-	//x2, y2 := 100, 200 //compile time error
+	//x2, y2 := 100, 200 //compile time error (.\variables.go:175:9: no new variables on left side of :=)
 	//fmt.Println(x2, y2)
 	//19
 	x2, z := 100, 300
