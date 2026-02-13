@@ -249,8 +249,7 @@ func main() {
 	//    b) Manual using `continue`
 	//    c) Manual using `fallthrough`
 	//    d) No fallthrough allowed
-
-	fmt.Println("2 → c) Manual using `fallthrough`")
+	fmt.Println("2 → c) Manual using fallthrough")
 
 	// 3. Which is NOT allowed in Go's if condition?
 	//    a) if true { ... }
@@ -259,6 +258,7 @@ func main() {
 	//    d) if condition() { ... }
 
 	fmt.Println("3 → b) if 1 { ... } is not allowed in Go")
+
 
 	// 4. What is the scope of a variable declared in switch short statement?
 	//    a) Entire program

@@ -65,7 +65,7 @@ Day 3 – Golang Training - Coding Questions
 
 // Q14. Write code to demonstrate that grouped declarations work
 //      both at global scope and function scope.
-
+   
 /*
 -----------------------------------------------------
 5. MULTIPLE DECLARATION AND ASSIGNMENT

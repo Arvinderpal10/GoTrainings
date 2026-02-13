@@ -223,7 +223,7 @@ fmt.Println("Q12 Grouped:", salary, age, id)
 //      slice, and pointer without initialization.
 //      Print their values and check which ones are nil.
 
-    fmt.Println("Q20:")
+    fmt.Println("Q20:")cd 
 // int
 	var zi int
 	fmt.Println("int:", zi)
@@ -249,3 +249,4 @@ fmt.Println("Q12 Grouped:", salary, age, id)
 	var zp *int
 	fmt.Println("pointer:", zp)
 	fmt.Println("pointer is nil:", zp == nil)
+}
