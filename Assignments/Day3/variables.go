@@ -96,6 +96,76 @@ Day 3 – Golang Training - Coding Questions
 //      slice, and pointer without initialization.
 //      Print their values and check which ones are nil.
 
+import (
+	"fmt"
+)
+var salary=10000
+func varUse(){
+		var x8=8746
+		fmt.Println(x8)
+	}
+	var(
+		age= 22
+		salary2=25000
+		id=13
+	)
 func main() {
-	// Write solutions here
+	fmt.Println(salary)
+	{
+		z:=15
+		fmt.Println(z)
+	}
+	
+	varUse()
+	fmt.Println(id,age,salary2)
+	//fmt.Println(z)
+
+	var(
+		age= 22
+		salary2=25000
+		id=13
+	)
+	fmt.Println(age,salary2,id)
+	var x =200
+	fmt.Println(x)
+	y:=4000
+	fmt.Println(y)
+	var g int=300
+	fmt.Println(g)
+	var slogan="variables in go -day3"
+	fmt.Println(slogan)
+	/*var x1=05
+	var x1="DOB"
+	fmt.Println(x1)
+	y1:="hello"
+	y1=100
+	fmt.Println(y1)*/
+	var b,c=10,20
+	fmt.Println(b,c)
+	b,c=30,40
+	fmt.Println("Before Swapping:",b,c)
+	b,c=c,b
+	fmt.Println("After swapping:",b,c)
+	/*x9:=58
+	y9:=96
+	fmt.Println(x9,y9)
+	x9:=96
+	y9:=58
+	fmt.Println(x9,y9)*/
+	x9:=53
+	y9:=35
+	fmt.Println(x9,y9)
+	var i int
+    var f float64
+    var s string
+    var b2 bool
+    var sl []int
+    var p *int
+	fmt.Printf("Zero value of int: %d\n", i)
+	fmt.Printf("Zero value of float64: %f\n", f)
+	fmt.Printf("Zero value of string: %s\n", s)
+	fmt.Printf("Zero value of bool: %t\n", b2)
+	fmt.Printf("Zero value of slice: %v\n", sl)
+	fmt.Printf("Zero value of pointer: %v\n", p)
+
 }
