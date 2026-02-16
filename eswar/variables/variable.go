@@ -612,17 +612,469 @@
 
 // 20. Declare variables with zero values and check if they equal nil for pointer, slice, and map types.
 
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	var p *int
+// 	var s []int
+// 	var m map[string]int
+
+// 	fmt.Println("pointer nil?", p == nil)
+// 	fmt.Println("slice nil?", s == nil)
+// 	fmt.Println("map nil?", m == nil)
+// }
+
+
+///day-6 tasks//
+// Q1. write  a program that takes a single character as input and determines if it is a vowel or a consonant.handle bothuppercase and lowercase letters
+// use mutiple values in cases (a,e,i,o,u,A,E,I,O,U) for non-alphabetic characters 
+
+// package main
+// import "fmt"
+// func main() {
+// 	var ch rune
+// 	fmt.Print("Enter a character: ")
+//     fmt.Scanf("%c", &ch)
+
+//     switch {
+    
+//     case ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||
+//          ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U':
+//         fmt.Println("Vowel")
+
+    
+//     case (ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z'):
+//         fmt.Println("Consonant")
+
+//     default:
+//         fmt.Println("Not a letter")
+//     }
+// }
+
+// Q2.Calculate BMI (Body Mass Index) using formula: BMI = weight(kg) / (height(m))²
+//Then categorize using tagless switch:
+//  BMI < 18.5 → "Underweight"
+//  25 ≤ BMI < 30 → "Overweight"
+	// - BMI ≥ 30 → "Obese"
+	// Print the BMI value and category
+
+// package main
+
+// import "fmt"
+
+// func main() {
+//     var weight, height float64
+
+    
+//     fmt.Print("Enter weight (kg): ")
+//     fmt.Scanln(&weight)
+
+//     fmt.Print("Enter height (meters): ")
+//     fmt.Scanln(&height)
+
+    
+//     bmi := weight / (height * height)
+
+//     // tagless switch
+//     switch {
+//     case bmi < 18.5:
+//         fmt.Println("BMI:", bmi, "- Underweight")
+
+//     case bmi < 25:
+//         fmt.Println("BMI:", bmi, "- Normal")
+
+//     case bmi < 30:
+//         fmt.Println("BMI:", bmi, "- Overweight")
+
+//     default:
+//         fmt.Println("BMI:", bmi, "- Obese")
+//     }
+// }
+
+
+// Q3. Calculate ticket price based on:
+	// - Age (child: <12, adult: 12-64, senior: 65+)
+	// - Day type (weekday/weekend)
+	// - Student status (yes/no)
+
+// package main
+
+// import "fmt"
+
+// func main() {
+//     var age int
+//     var day string
+//     var student string
+
+//     price := 10.0
+
+    
+//     fmt.Print("Enter age: ")
+//     fmt.Scanln(&age)
+
+//     fmt.Print("Enter day (weekday/weekend): ")
+//     fmt.Scanln(&day)
+
+//     fmt.Print("Are you a student? (yes/no): ")
+//     fmt.Scanln(&student)
+
+    
+//     if age < 12 {
+//         price = price * 0.5
+//     } else if age >= 65 {
+//         price = price * 0.7
+//     } else if age >= 12 && age <= 64 && student=="yes" && day=="weekday" {
+//         price = price * 0.8
+//     }
+
+    
+//     if day == "weekend" {
+//         price = price + 2
+//     }
+
+//     fmt.Println("Final Ticket Price: $", price)
+// }
+
+
+// Q4.Convert Roman numerals to integers for values 1-10:
+	// - I → 1
+	// - II → 2
+	// - III → 3
+	// - IV → 4
+	// - V → 5
+	// - VI → 6
+	// - VII → 7
+	// - VIII → 8
+	// - IX → 9
+	// - X → 10
+	// For invalid input → "Invalid Roman numeral"
+
+// package main
+
+// import "fmt"
+
+// func main() {
+//     var num int
+
+//     fmt.Print("Enter number (1-10): ")
+//     fmt.Scanln(&num)
+
+//     switch num {
+//     case 1:
+//         fmt.Println("I")
+//     case 2:
+//         fmt.Println("II")
+//     case 3:
+//         fmt.Println("III")
+//     case 4:
+//         fmt.Println("IV")
+//     case 5:
+//         fmt.Println("V")
+//     case 6:
+//         fmt.Println("VI")
+//     case 7:
+//         fmt.Println("VII")
+//     case 8:
+//         fmt.Println("VIII")
+//     case 9:
+//         fmt.Println("IX")
+//     case 10:
+//         fmt.Println("X")
+//     default:
+//         fmt.Println("Invalid number")
+//     }
+// }
+
+
+// 
+
+/// Q5.// Simulate banking operations:
+	// - Input: transaction type ("deposit", "withdraw", "balance", "transfer")
+	// - For deposit: add amount to balance
+	// - For withdraw: check if sufficient balance
+	// - For transfer: deduct from one account, add to another
+	// - For invalid transaction → "Invalid operation"
+	// Use switch with short statement to initialize variables.
+
+
+
+// package main
+
+// import "fmt"
+
+// func main() {
+//     balance := 1000.0
+//     var choice string
+//     var amount float64
+
+//     fmt.Print("Enter transaction (deposit/withdraw/balance/transfer): ")
+//     fmt.Scanln(&choice)
+
+    
+//     switch t := choice; t {
+
+//     case "deposit":
+//         fmt.Print("Enter amount: ")
+//         fmt.Scanln(&amount)
+//         balance += amount
+//         fmt.Println("New Balance:", balance)
+
+//     case "withdraw":
+//         fmt.Print("Enter amount: ")
+//         fmt.Scanln(&amount)
+//         if amount <= balance {
+//             balance -= amount
+//             fmt.Println("New Balance:", balance)
+//         } else {
+//             fmt.Println("Insufficient balance")
+//         }
+
+//     case "balance":
+//         fmt.Println("Current Balance:", balance)
+
+//     case "transfer":
+//         var other float64 = 500
+//         fmt.Print("Enter amount: ")
+//         fmt.Scanln(&amount)
+
+//         if amount <= balance {
+//             balance -= amount
+//             other += amount
+//             fmt.Println("Transfer successful")
+//             fmt.Println("Your Balance:", balance)
+//             fmt.Println("Other Account Balance:", other)
+//         } else {
+//             fmt.Println("Insufficient balance")
+//         }
+
+//     default:
+//         fmt.Println("Invalid operation")
+//     }
+// }
+
+
+/// day -9  tasks  ////
+///  1. Simple Add Function
+// Write a function add that takes two integers
+// and returns their sum.
+
+// package main
+// import "fmt"
+// func add (a int,b int ) int {
+// 	return 0
+// }
+// func main() {
+// 	fmt.Println(add (3,5))
+// }
+
+
+// Q2.// 2. Even or Odd
+// Write a function isEven that takes an integer
+// and returns true if the number is even,
+// otherwise false.
+
+// package main
+
+// import "fmt"
+
+// func isEven(n int) bool {
+//     return n%2 == 0
+// }
+
+// func main() {
+//     fmt.Println(isEven(4))
+//     fmt.Println(isEven(7))
+// }
+
+
+//Q3.  3. Recursive Countdown
+// Write a recursive function countdown(n int)
+// that prints numbers from n down to 1.
+// Stop when n becomes 0.
+
+// package main
+
+// import "fmt"
+
+// func countdown(n int) {
+//     if n == 0 {
+//         return
+//     }
+
+//     fmt.Println(n)
+//     countdown(n - 1)
+// }
+
+// func main() {
+//     countdown(5)
+// }
+
+
+//Q4.  4. Recursive Factorial
+// Write a recursive function factorial(n int)
+// that returns the factorial of n.
+// (Assume n >= 0)
+
+
+// package main
+
+// import "fmt"
+
+// func factorial(n int) int {
+//     if n == 0 {
+//         return 1
+//     }
+//     return n * factorial(n-1)
+// }
+
+// func main() {
+//     fmt.Println(factorial(8))
+// }
+
+
+/// Q5.// 5. Variadic Sum
+// Write a variadic function sum that accepts
+// multiple integers and returns their total.
+// /////////////////////////////////////////////////////////////
+
+// package main
+
+// import "fmt"
+
+
+// func sum(nums ...int) int {
+//     total := 0
+
+//     for _, n := range nums {
+//         total += n
+//     }
+
+//     return total
+// }
+
+// func main() {
+//     fmt.Println(sum(1, 2, 3,4,5))
+//     fmt.Println(sum(5, 10, 15, 20, 25))
+// }
+
+
+//// Q6. Function as Parameter // Write a function apply that takes: 
+// // - a function of type func(int) int 
+// // - an integer value
+//  // It should return the result of calling the function
+//  // with the integer.
+
+// package main
+
+// import "fmt"
+
+
+// func apply(f func(int) int, x int) int {
+//     return f(x)
+// }
+
+
+// func square(n int) int {
+//     return n * n
+// }
+
+// func main() {
+//     fmt.Println(apply(square, 9))
+// }
+
+// Q 7. Anonymous Function
+// Inside main(), create an anonymous function
+// that multiplies two integers and print the result
+// of multiplying 3 and 4.
+// package main
+
+// import "fmt"
+
+// func main() {
+
+//     // anonymous function
+//     multiply := func(a int, b int) int {
+//         return a * b
+//     }
+
+//     fmt.Println(multiply(6, 5))
+// }
+
+
+// Q// 8. Multiple Return Values
+// Write a function divide that takes two integers
+// and returns quotient and remainder.
+
+// package main
+
+// import "fmt"
+
+// // divide function
+// func divide(a int, b int) (int, int) {
+//     q := a / b
+//     r := a % b
+//     return q, r
+// }
+
+// func main() {
+//     q, r := divide(13, 3)
+//     fmt.Println("Quotient:", q)
+//     fmt.Println("Remainder:", r)
+// }
+
+
+// Q 9. Closure
+// Write a function makeAdder(x int) that returns
+// a function. The returned function should take
+// one integer y and return x + y.
+
+// package main
+
+// import "fmt"
+
+// // makeAdder returns a function
+// func makeAdder(x int) func(int) int {
+//     return func(y int) int {
+//         return x + y
+//     }
+// }
+
+// func main() {
+//     add5 := makeAdder(5)
+
+//     fmt.Println(add5(3))
+//     fmt.Println(add5(9))
+// }
+
+// Q10. Simple Map Function
+// Write a function doubleSlice that takes a slice
+// of integers and returns a new slice where each
+// element is doubled.
+
 package main
 
 import "fmt"
 
-func main() {
-	var p *int
-	var s []int
-	var m map[string]int
 
-	fmt.Println("pointer nil?", p == nil)
-	fmt.Println("slice nil?", s == nil)
-	fmt.Println("map nil?", m == nil)
+func doubleSlice(nums []int) []int {
+    result := make([]int, len(nums))
+
+    for i, v := range nums {
+        result[i] = v * 7
+
+    }
+
+    return result
 }
+
+func main() {
+    data := []int{1, 2, 3, 4}
+
+    doubled := doubleSlice(data)
+
+    fmt.Println(doubled)
+}
+
 
