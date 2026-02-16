@@ -221,51 +221,51 @@ func main() {
 		fmt.Println("Invalid operation")
 	}
 
-	//fmt.Println(" - - - - - - - - - - Theory Questions - - - - - - - - - - - ")
-
-	// Section 1: Multiple Choice Questions
-
-	// 1. What happens when no case matches in a switch statement?
-	//    a) Compilation error
-	//    b) Runtime error
-	//    c) Executes default case (if present)
-	//    d) Executes first case
-	//ANS: (c)
-
-	// 2. How does Go handle fallthrough in switch?
-	//    a) Automatic fallthrough by default
-	//    b) Manual using `continue`
-	//    c) Manual using `fallthrough`
-	//    d) No fallthrough allowed
-	//ANS: (c)
-
-	// 3. Which is NOT allowed in Go's if condition?
-	//    a) if true { ... }
-	//    b) if 1 { ... }
-	//    c) if x > 5 { ... }
-	//    d) if condition() { ... }
-	//ANS: (b)
-
-	// 4. What is the scope of a variable declared in switch short statement?
-	//    a) Entire program
-	//    b) Only the case where declared
-	//    c) Entire switch block
-	//    d) Only the function
-	//ANS: (c)
-
-	// 5. Which is better for checking same variable against many values?
-	//    a) Multiple if statements
-	//    b) Switch statement
-	//    c) Both are equal
-	//    d) Ternary operator
-	//ANS:(b)
-
-	// Section 2: True/False Questions
-
-	// 1. T/F: Go requires braces {} for if blocks TRUE
-	// 2. T/F: Switch cases in Go are case-sensitive for strings TRUE
-	// 3. T/F: You can use float values in switch cases TRUE
-	// 4. T/F: Default case is mandatory in switch FALSE
-	// 5. T/F: Tagless switch can have conditions in cases FALSE
-
 }
+
+//fmt.Println(" - - - - - - - - - - Theory Questions - - - - - - - - - - - ")
+
+// Section 1: Multiple Choice Questions
+
+// 1. What happens when no case matches in a switch statement?
+//    a) Compilation error
+//    b) Runtime error
+//    c) Executes default case (if present)
+//    d) Executes first case
+//ANS: (c)
+
+// 2. How does Go handle fallthrough in switch?
+//    a) Automatic fallthrough by default
+//    b) Manual using `continue`
+//    c) Manual using `fallthrough`
+//    d) No fallthrough allowed
+//ANS: (c)
+
+// 3. Which is NOT allowed in Go's if condition?
+//    a) if true { ... }
+//    b) if 1 { ... }
+//    c) if x > 5 { ... }
+//    d) if condition() { ... }
+//ANS: (b)
+
+// 4. What is the scope of a variable declared in switch short statement?
+//    a) Entire program
+//    b) Only the case where declared
+//    c) Entire switch block
+//    d) Only the function
+//ANS: (c)
+
+// 5. Which is better for checking same variable against many values?
+//    a) Multiple if statements
+//    b) Switch statement
+//    c) Both are equal
+//    d) Ternary operator
+//ANS:(b)
+
+// Section 2: True/False Questions
+
+// 1. T/F: Go requires braces {} for if blocks TRUE
+// 2. T/F: Switch cases in Go are case-sensitive for strings TRUE
+// 3. T/F: You can use float values in switch cases TRUE
+// 4. T/F: Default case is mandatory in switch FALSE
+// 5. T/F: Tagless switch can have conditions in cases FALSE
