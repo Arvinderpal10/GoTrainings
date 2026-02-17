@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 ///////////////////////////////////////////////////////////////
 // GO ASSIGNMENT – BASIC LEVEL
 // Topics Covered:
@@ -8,7 +10,7 @@ package main
 // Multiple Return Values
 //
 // Instructions:
-// 1. Do NOT change function signatures.
+// 1. Do NOT change function signatures
 // 2. Do NOT use global variables.
 // 3. Write your answers for theory in comments.
 // 4. Write test cases inside main().
@@ -21,52 +23,52 @@ package main
 // 1. (MCQ)
 // What does the return type of a function indicate?
 // a) The name of the function
-// b) The type of value the function returns
+// b) The type of value the function returns     >>>**correct
 // c) The number of parameters
 // d) The memory location of the function
 
 // 2. (True/False)
-// A function in Go can return more than one value.
+// A function in Go can return more than one value.  >>>*True
 
 // 3. (MCQ)
 // Which keyword is used to return a value from a function?
 // a) break
-// b) return
+// b) return                           >>>*correct
 // c) func
 // d) yield
 
 // 4. (True/False)
-// A recursive function must have a base case.
+// A recursive function must have a base case.    >>>*True
 
 // 5. (MCQ)
 // What is a variadic function?
 // a) A function with no parameters
 // b) A function that returns multiple values
-// c) A function that takes a variable number of arguments
+// c) A function that takes a variable number of arguments     >>>*correct
 // d) A function that calls itself
 
 // 6. (True/False)
-// Variadic parameters are treated as slices inside the function.
+// Variadic parameters are treated as slices inside the function.     >>>*True
 
 // 7. (MCQ)
 // What is an anonymous function?
-// a) A function without a name
+// a) A function without a name         >>>*correct
 // b) A function inside a package only
 // c) A function that returns nothing
 // d) A recursive function
 
 // 8. (True/False)
-// Functions in Go can be assigned to variables.
+// Functions in Go can be assigned to variables.     >>>*True
 
 // 9. (MCQ)
 // Which of the following is a correct function type?
-// a) func(int) int
+// a) func(int) int       >>>*correct
 // b) function(int) int
 // c) fn(int) int
 // d) int func(int)
 
 // 10. (True/False)
-// Only one return statement executes during a single function call.
+// Only one return statement executes during a single function call.    >>>*False
 
 ///////////////////////////////////////////////////////////////
 // SECTION B – CODING (Basic Level)
@@ -78,7 +80,8 @@ package main
 // and returns their sum.
 // /////////////////////////////////////////////////////////////
 func add(a int, b int) int {
-	return 0
+
+	return a + b
 }
 
 // /////////////////////////////////////////////////////////////
@@ -88,6 +91,9 @@ func add(a int, b int) int {
 // otherwise false.
 // /////////////////////////////////////////////////////////////
 func isEven(n int) bool {
+	if n%2 == 0 {
+		return true
+	}
 	return false
 }
 
@@ -98,6 +104,11 @@ func isEven(n int) bool {
 // Stop when n becomes 0.
 // /////////////////////////////////////////////////////////////
 func countdown(n int) {
+	if n == 0 {
+		return
+	}
+	fmt.Println(n)
+	countdown(n - 1)
 }
 
 // /////////////////////////////////////////////////////////////
@@ -107,7 +118,10 @@ func countdown(n int) {
 // (Assume n >= 0)
 // /////////////////////////////////////////////////////////////
 func factorial(n int) int {
-	return 0
+	if n == 0 {
+		return 1
+	}
+	return n * factorial(n-1)
 }
 
 // /////////////////////////////////////////////////////////////
@@ -116,7 +130,11 @@ func factorial(n int) int {
 // multiple integers and returns their total.
 // /////////////////////////////////////////////////////////////
 func sum(nums ...int) int {
-	return 0
+	total := 0
+	for _, n := range nums {
+		total += n
+	}
+	return total
 }
 
 // /////////////////////////////////////////////////////////////
@@ -128,7 +146,8 @@ func sum(nums ...int) int {
 // with the integer.
 // /////////////////////////////////////////////////////////////
 func apply(f func(int) int, x int) int {
-	return 0
+	return f(x)
+
 }
 
 ///////////////////////////////////////////////////////////////
@@ -144,7 +163,7 @@ func apply(f func(int) int, x int) int {
 // and returns quotient and remainder.
 // /////////////////////////////////////////////////////////////
 func divide(a int, b int) (int, int) {
-	return 0, 0
+	return a / b, a % b
 }
 
 // /////////////////////////////////////////////////////////////
@@ -154,7 +173,9 @@ func divide(a int, b int) (int, int) {
 // one integer y and return x + y.
 // /////////////////////////////////////////////////////////////
 func makeAdder(x int) func(int) int {
-	return nil
+	return func(y int) int {
+		return x + y
+	}
 }
 
 // /////////////////////////////////////////////////////////////
@@ -164,7 +185,14 @@ func makeAdder(x int) func(int) int {
 // element is doubled.
 // /////////////////////////////////////////////////////////////
 func doubleSlice(slice []int) []int {
-	return nil
+	result := make([]int, len(slice))
+
+	for i, v := range slice {
+		result[i] = v * 2
+	}
+
+	return result
+
 }
 
 // /////////////////////////////////////////////////////////////
@@ -172,5 +200,31 @@ func doubleSlice(slice []int) []int {
 // Add test cases here to check your functions.
 // /////////////////////////////////////////////////////////////
 func main() {
+	fmt.Println(add(4, 5))            //Q1
+	fmt.Println(isEven(10))           //Q2
+	countdown(5)                      //Q3
+	fmt.Println(factorial(5))         //Q4
+	fmt.Println(sum(1, 2, 3))         //Q5
+	result := apply(func(n int) int { //Q6
+		return n * n
+	}, 5)
+	fmt.Println(result)
+
+	func(a int, b int) { //Q7
+		fmt.Println("Anonymous function Multilication", a*b)
+
+	}(3, 5)
+
+	fmt.Println(divide(10, 3)) //Q8
+
+	add10 := makeAdder(10) //Q9
+	fmt.Println(add10(5))
+	add20 := makeAdder(20)
+	fmt.Println(add20(5))
+
+	nums := []int{1, 2, 3, 4} //Q10
+	doubled := doubleSlice(nums)
+	fmt.Println("Original:", nums)
+	fmt.Println("Doubled:", doubled)
 
 }
