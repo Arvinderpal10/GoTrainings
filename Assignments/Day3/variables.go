@@ -18,7 +18,7 @@ Day 3 – Golang Training - Coding Questions
 
 // Q3. Declare a variable a of type int, initialize it later with value 300, and print it.
 
-// Q4. Use short declaration to create a string variable slogan with value
+// Q4. Use short declaration to create a string variablgse slogan with value
 //     "Variables in Go - Day 3" and print it.
 
 /*
