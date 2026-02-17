@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 ///////////////////////////////////////////////////////////////
 // GO ASSIGNMENT – BASIC LEVEL
 // Topics Covered:
@@ -24,9 +26,11 @@ package main
 // b) The type of value the function returns
 // c) The number of parameters
 // d) The memory location of the function
+// A.(b) The type of value the function returns
 
 // 2. (True/False)
 // A function in Go can return more than one value.
+// A. True
 
 // 3. (MCQ)
 // Which keyword is used to return a value from a function?
@@ -34,9 +38,11 @@ package main
 // b) return
 // c) func
 // d) yield
+// A. (b) return
 
 // 4. (True/False)
 // A recursive function must have a base case.
+// A. True
 
 // 5. (MCQ)
 // What is a variadic function?
@@ -44,9 +50,11 @@ package main
 // b) A function that returns multiple values
 // c) A function that takes a variable number of arguments
 // d) A function that calls itself
+// A. (c) A function that takes a variable number of arguments
 
 // 6. (True/False)
 // Variadic parameters are treated as slices inside the function.
+// A. True
 
 // 7. (MCQ)
 // What is an anonymous function?
@@ -54,9 +62,11 @@ package main
 // b) A function inside a package only
 // c) A function that returns nothing
 // d) A recursive function
+// A. (a) A function without a name
 
 // 8. (True/False)
 // Functions in Go can be assigned to variables.
+// A. True
 
 // 9. (MCQ)
 // Which of the following is a correct function type?
@@ -64,9 +74,11 @@ package main
 // b) function(int) int
 // c) fn(int) int
 // d) int func(int)
+// A. (a) func(int) int
 
 // 10. (True/False)
 // Only one return statement executes during a single function call.
+// A. True
 
 ///////////////////////////////////////////////////////////////
 // SECTION B – CODING (Basic Level)
@@ -78,7 +90,7 @@ package main
 // and returns their sum.
 // /////////////////////////////////////////////////////////////
 func add(a int, b int) int {
-	return 0
+	return a + b
 }
 
 // /////////////////////////////////////////////////////////////
@@ -88,7 +100,7 @@ func add(a int, b int) int {
 // otherwise false.
 // /////////////////////////////////////////////////////////////
 func isEven(n int) bool {
-	return false
+	return n%2 == 0
 }
 
 // /////////////////////////////////////////////////////////////
@@ -98,6 +110,11 @@ func isEven(n int) bool {
 // Stop when n becomes 0.
 // /////////////////////////////////////////////////////////////
 func countdown(n int) {
+	if n <= 0 {
+		return
+	}
+	println(n)
+	countdown(n - 1)
 }
 
 // /////////////////////////////////////////////////////////////
@@ -107,7 +124,10 @@ func countdown(n int) {
 // (Assume n >= 0)
 // /////////////////////////////////////////////////////////////
 func factorial(n int) int {
-	return 0
+	if n == 0 {
+		return 1
+	}
+	return n * factorial(n-1)
 }
 
 // /////////////////////////////////////////////////////////////
@@ -116,7 +136,12 @@ func factorial(n int) int {
 // multiple integers and returns their total.
 // /////////////////////////////////////////////////////////////
 func sum(nums ...int) int {
-	return 0
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	return total
+
 }
 
 // /////////////////////////////////////////////////////////////
@@ -128,7 +153,7 @@ func sum(nums ...int) int {
 // with the integer.
 // /////////////////////////////////////////////////////////////
 func apply(f func(int) int, x int) int {
-	return 0
+	return f(x)
 }
 
 ///////////////////////////////////////////////////////////////
@@ -137,6 +162,16 @@ func apply(f func(int) int, x int) int {
 // that multiplies two integers and print the result
 // of multiplying 3 and 4.
 ///////////////////////////////////////////////////////////////
+/*func main() {
+
+	// Anonymous function that multiplies two integers
+	multiply := func(a int, b int) int {
+		return a * b
+	}
+
+	// Print the result of multiplying 3 and 4
+	fmt.Println("3 * 4 =", multiply(3, 4))
+}*/
 
 // /////////////////////////////////////////////////////////////
 // 8. Multiple Return Values
@@ -144,7 +179,8 @@ func apply(f func(int) int, x int) int {
 // and returns quotient and remainder.
 // /////////////////////////////////////////////////////////////
 func divide(a int, b int) (int, int) {
-	return 0, 0
+	return a / b, a % b
+
 }
 
 // /////////////////////////////////////////////////////////////
@@ -154,7 +190,9 @@ func divide(a int, b int) (int, int) {
 // one integer y and return x + y.
 // /////////////////////////////////////////////////////////////
 func makeAdder(x int) func(int) int {
-	return nil
+	return func(y int) int {
+		return x + y
+	}
 }
 
 // /////////////////////////////////////////////////////////////
@@ -164,7 +202,11 @@ func makeAdder(x int) func(int) int {
 // element is doubled.
 // /////////////////////////////////////////////////////////////
 func doubleSlice(slice []int) []int {
-	return nil
+	doubled := make([]int, len(slice))
+	for i, v := range slice {
+		doubled[i] = v * 2
+	}
+	return doubled
 }
 
 // /////////////////////////////////////////////////////////////
@@ -172,5 +214,46 @@ func doubleSlice(slice []int) []int {
 // Add test cases here to check your functions.
 // /////////////////////////////////////////////////////////////
 func main() {
+	// Q.1
+	fmt.Println("Add(4, 6):", add(4, 6))
+
+	// Q.2
+	fmt.Println("IsEven(10):", isEven(10))
+	fmt.Println("IsEven(7):", isEven(7))
+
+	// Q.3
+	fmt.Println("Countdown from 5:")
+	countdown(5)
+
+	// Q.4
+	fmt.Println("Factorial(5):", factorial(5))
+
+	// Q.5
+	fmt.Println("Sum(1,2,3,4):", sum(1, 2, 3, 4))
+
+	// Q.6
+	square := func(x int) int {
+		return x * x
+	}
+	fmt.Println("Apply square to 5:", apply(square, 5))
+
+	// Q.7
+	multiply := func(a int, b int) int {
+		return a * b
+	}
+	fmt.Println("Anonymous multiply 3 * 4:", multiply(3, 4))
+
+	// Q.8
+	q, r := divide(10, 3)
+	fmt.Println("Divide(10,3) -> Quotient:", q, "Remainder:", r)
+
+	// Q.9
+	addTen := makeAdder(10)
+	fmt.Println("10 + 5 =", addTen(5))
+
+	// Q.10
+	nums := []int{1, 2, 3, 4}
+	fmt.Println("Original slice:", nums)
+	fmt.Println("Doubled slice:", doubleSlice(nums))
 
 }
