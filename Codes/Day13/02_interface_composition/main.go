@@ -19,6 +19,7 @@ type Writer interface {
 type ReadWriter interface {
 	Reader
 	Writer
+	// Greet() string
 }
 
 // Closer defines close behavior

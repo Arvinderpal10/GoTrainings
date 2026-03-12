@@ -215,3 +215,11 @@ func main() {
 	ECar := Car{engine: ElectricEngine{}}
 	ECar.Start()
 }
+
+// interface A -- Sing() , Dance() , Talent()
+
+// interface B -- Speak() , Laugh()
+
+// Compostiton -- interface C - A , B , Register()
+
+// There is no implement keyword
