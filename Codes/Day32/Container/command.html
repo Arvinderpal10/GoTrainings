@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dockerfile Keywords - Complete Cheat Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: #f8f9fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 2rem 2rem 3rem 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #0c4e6e, #1e7b9e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
+        .subhead {
+            color: #4a627a;
+            border-left: 4px solid #0c4e6e;
+            padding-left: 1rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            color: #0f2b3d;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+            color: #1e4a6e;
+            background: #f0f4f9;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .keyword-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .keyword-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .keyword-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #0c4e6e, #1e7b9e);
+            color: white;
+            padding: 0.75rem 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .purpose {
+            background: #e6f0f5;
+            padding: 0.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #0c4e6e;
+        }
+
+        .code-example {
+            background: #1e2a36;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-family: 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            margin: 0.5rem 0;
+        }
+
+        .code-example pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .why-note {
+            font-size: 0.8rem;
+            color: #4a627a;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .command-block {
+            background: #1e2a36;
+            color: #e2e8f0;
+            border-radius: 12px;
+            margin: 1rem 0 1.2rem 0;
+            overflow-x: auto;
+        }
+
+        .command-block pre {
+            margin: 0;
+            padding: 1rem 1.2rem;
+            font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .command-label {
+            background: #0f172a;
+            padding: 0.4rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            border-bottom: 1px solid #2d3a48;
+        }
+
+        .sample-output {
+            background: #f1f5f9;
+            border-left: 4px solid #0c4e6e;
+            margin: 1rem 0 1.5rem 1rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: #0f2b3d;
+            overflow-x: auto;
+        }
+
+        .sample-output pre {
+            margin: 0;
+            font-family: inherit;
+            white-space: pre-wrap;
+        }
+
+        .step-note {
+            background: #eef2ff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-left: 3px solid #1e7b9e;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #0c4e6e;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e2e8f0, transparent);
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6c86a3;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .keyword-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .command-block pre {
+                font-size: 0.8rem;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🐳 Dockerfile Keywords</h1>
+
+        <!-- ======================== WHAT IS A DOCKERFILE ======================== -->
+        <h2>📖 What is a Dockerfile?</h2>
+        <div class="step-note">
+            A <strong>Dockerfile</strong> is a recipe that tells Docker how to build your application image.
+            Each keyword is an instruction that adds a layer to the image.
+        </div>
+
+        <!-- ======================== KEYWORDS GRID ======================== -->
+        <h2>📋 Complete List of Dockerfile Keywords</h2>
+        <div class="keyword-grid">
+
+            <!-- 1. FROM -->
+            <div class="keyword-card">
+                <div class="card-header">1️⃣ FROM</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Sets the base image</div>
+                    <div class="code-example">
+                        <pre>FROM ubuntu:22.04
+FROM alpine:latest
+FROM node:18-alpine
+FROM python:3.11-slim
+FROM golang:1.21-alpine</pre>
+                    </div>
+                    <div class="why-note">💡 Every container starts from an existing image. This is always the first
+                        instruction.</div>
+                </div>
+            </div>
+
+            <!-- 2. WORKDIR -->
+            <div class="keyword-card">
+                <div class="card-header">2️⃣ WORKDIR</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Sets working directory (like `cd`)</div>
+                    <div class="code-example">
+                        <pre>WORKDIR /app
+WORKDIR /usr/src/app
+WORKDIR /home/node/app</pre>
+                    </div>
+                    <div class="why-note">💡 All following commands (RUN, CMD, COPY) will run from this directory.</div>
+                </div>
+            </div>
+
+            <!-- 3. COPY -->
+            <div class="keyword-card">
+                <div class="card-header">3️⃣ COPY</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Copies files from host to container</div>
+                    <div class="code-example">
+                        <pre>COPY . /app
+COPY package.json .
+COPY go.mod go.sum ./
+COPY --chown=node:node . /app</pre>
+                    </div>
+                    <div class="why-note">💡 Your application code needs to be inside the container to run.</div>
+                </div>
+            </div>
+
+            <!-- 4. ADD -->
+            <div class="keyword-card">
+                <div class="card-header">4️⃣ ADD</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Advanced COPY + archive extraction + remote URLs</div>
+                    <div class="code-example">
+                        <pre>ADD . /app
+ADD archive.tar.gz /app/
+ADD https://example.com/file /tmp/</pre>
+                    </div>
+                    <div class="why-note">💡 Use COPY unless you need automatic tar extraction or URL downloads.</div>
+                </div>
+            </div>
+
+            <!-- 5. RUN -->
+            <div class="keyword-card">
+                <div class="card-header">5️⃣ RUN</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Executes commands during build</div>
+                    <div class="code-example">
+                        <pre>RUN apt-get update && apt-get install -y python3
+RUN npm install
+RUN go mod download
+RUN mkdir -p /app/logs</pre>
+                    </div>
+                    <div class="why-note">💡 Prepares your environment (install dependencies, create folders).</div>
+                </div>
+            </div>
+
+            <!-- 6. CMD -->
+            <div class="keyword-card">
+                <div class="card-header">6️⃣ CMD</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Default command when container starts (can be overridden)</div>
+                    <div class="code-example">
+                        <pre>CMD ["node", "app.js"]
+CMD ["./main"]
+CMD ["npm", "start"]</pre>
+                    </div>
+                    <div class="why-note">💡 Only one CMD per Dockerfile. Last one wins. Can be overridden by `docker
+                        run` arguments.</div>
+                </div>
+            </div>
+
+            <!-- 7. ENTRYPOINT -->
+            <div class="keyword-card">
+                <div class="card-header">7️⃣ ENTRYPOINT</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Main command (cannot be overridden easily)</div>
+                    <div class="code-example">
+                        <pre>ENTRYPOINT ["node"]
+CMD ["app.js"]
+
+ENTRYPOINT ["./main"]
+CMD ["--help"]</pre>
+                    </div>
+                    <div class="why-note">💡 CMD can be overridden, ENTRYPOINT always runs. Together they work great.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. EXPOSE -->
+            <div class="keyword-card">
+                <div class="card-header">8️⃣ EXPOSE</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Documents which port the container listens on</div>
+                    <div class="code-example">
+                        <pre>EXPOSE 8080
+EXPOSE 3000
+EXPOSE 80
+EXPOSE 5432</pre>
+                    </div>
+                    <div class="why-note">💡 This is documentation only! Use `-p` with `docker run` to actually publish
+                        the port.</div>
+                </div>
+            </div>
+
+            <!-- 9. ENV -->
+            <div class="keyword-card">
+                <div class="card-header">9️⃣ ENV</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Sets environment variables inside container</div>
+                    <div class="code-example">
+                        <pre>ENV NODE_ENV=production
+ENV PORT=8080
+ENV DB_HOST=localhost
+ENV PATH="/myapp/bin:${PATH}"</pre>
+                    </div>
+                    <div class="why-note">💡 Configure your application without changing code.</div>
+                </div>
+            </div>
+
+            <!-- 10. ARG -->
+            <div class="keyword-card">
+                <div class="card-header">🔟 ARG</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Build-time variables (only available during build)</div>
+                    <div class="code-example">
+                        <pre>ARG VERSION=latest
+ARG NODE_VERSION=18
+RUN echo "Building version ${VERSION}"</pre>
+                    </div>
+                    <div class="why-note">💡 ARG disappears after build, ENV stays in container. Use `--build-arg` to
+                        set values.</div>
+                </div>
+            </div>
+
+            <!-- 11. VOLUME -->
+            <div class="keyword-card">
+                <div class="card-header">1️⃣1️⃣ VOLUME</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Creates a mount point for persistent data</div>
+                    <div class="code-example">
+                        <pre>VOLUME /data
+VOLUME /var/lib/postgresql/data
+VOLUME ["/app/logs", "/app/uploads"]</pre>
+                    </div>
+                    <div class="why-note">💡 Data in volumes survives container deletion and restarts.</div>
+                </div>
+            </div>
+
+            <!-- 12. USER -->
+            <div class="keyword-card">
+                <div class="card-header">1️⃣2️⃣ USER</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Changes user for subsequent commands</div>
+                    <div class="code-example">
+                        <pre>RUN useradd -m appuser
+USER appuser
+USER node
+USER 1000</pre>
+                    </div>
+                    <div class="why-note">💡 Running as root is a security risk. Always switch to a non-root user.</div>
+                </div>
+            </div>
+
+            <!-- 13. LABEL -->
+            <div class="keyword-card">
+                <div class="card-header">1️⃣3️⃣ LABEL</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Adds metadata to image</div>
+                    <div class="code-example">
+                        <pre>LABEL version="1.0.0"
+LABEL maintainer="john@example.com"
+LABEL description="My awesome app"</pre>
+                    </div>
+                    <div class="why-note">💡 Helps organize and filter images with `docker image ls --filter`.</div>
+                </div>
+            </div>
+
+            <!-- 14. HEALTHCHECK -->
+            <div class="keyword-card">
+                <div class="card-header">1️⃣4️⃣ HEALTHCHECK</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Tests if container is working properly</div>
+                    <div class="code-example">
+                        <pre>HEALTHCHECK --interval=30s --timeout=3s \
+  --retries=3 CMD curl -f http://localhost:8080/health || exit 1</pre>
+                    </div>
+                    <div class="why-note">💡 Docker can automatically restart unhealthy containers.</div>
+                </div>
+            </div>
+
+            <!-- 15. SHELL -->
+            <div class="keyword-card">
+                <div class="card-header">1️⃣5️⃣ SHELL</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Changes default shell used for shell form commands</div>
+                    <div class="code-example">
+                        <pre>SHELL ["/bin/bash", "-c"]
+SHELL ["/bin/sh", "-c"]
+SHELL ["powershell", "-Command"]</pre>
+                    </div>
+                    <div class="why-note">💡 Useful for Windows containers or when you need bash features.</div>
+                </div>
+            </div>
+
+            <!-- 16. STOPSIGNAL -->
+            <div class="keyword-card">
+                <div class="card-header">1️⃣6️⃣ STOPSIGNAL</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Sets the system call signal to stop the container</div>
+                    <div class="code-example">
+                        <pre>STOPSIGNAL SIGTERM
+STOPSIGNAL SIGINT
+STOPSIGNAL SIGKILL</pre>
+                    </div>
+                    <div class="why-note">💡 Some apps need a specific signal for graceful shutdown.</div>
+                </div>
+            </div>
+
+            <!-- 17. ONBUILD -->
+            <div class="keyword-card">
+                <div class="card-header">1️⃣7️⃣ ONBUILD</div>
+                <div class="card-body">
+                    <div class="purpose">🎯 Triggers when image is used as a base for another build</div>
+                    <div class="code-example">
+                        <pre>ONBUILD COPY . /app
+ONBUILD RUN npm install
+
+# In child Dockerfile:
+FROM parent-image  # ONBUILD commands run here</pre>
+                    </div>
+                    <div class="why-note">💡 Useful for creating base images that need to copy app code later.</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ======================== CMD vs ENTRYPOINT Comparison ======================== -->
+        <h2>⚖️ CMD vs ENTRYPOINT - Key Differences</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>CMD</th>
+                    <th>ENTRYPOINT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Can be overridden</td>
+                    <td>✅ Yes (by `docker run` arguments)</td>
+                    <td>❌ No (use `--entrypoint` to override)</td>
+                </tr>
+                <tr>
+                    <td>Default behavior</td>
+                    <td>Provides defaults for executable</td>
+                    <td>Defines the main executable</td>
+                </tr>
+                <tr>
+                    <td>Best for</td>
+                    <td>Providing default arguments</td>
+                    <td>Setting the main process</td>
+                </tr>
+                <tr>
+                    <td>Together they work as</td>
+                    <td colspan="2">ENTRYPOINT defines executable, CMD provides default arguments</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ======================== Practical Example ======================== -->
+        <h2>🎯 Practical Example - Complete Dockerfile</h2>
+        <div class="command-block">
+            <div class="command-label">Dockerfile for Go Application</div>
+            <pre><code># 1. Start from Go base image
+FROM golang:1.21-alpine
+
+# 2. Set working directory
+WORKDIR /app
+
+# 3. Copy dependency files (better caching)
+COPY go.mod go.sum ./
+
+# 4. Download dependencies
+RUN go mod download
+
+# 5. Copy all source code
+COPY . .
+
+# 6. Build the application
+RUN go build -o main .
+
+# 7. Document the port
+EXPOSE 8080
+
+# 8. Run the application
+CMD ["./main"]</code></pre>
+        </div>
+
+        <!-- ======================== Best Practices ======================== -->
+        <h2>💡 Best Practices Summary</h2>
+        <div class="step-note">
+            ✅ <strong>Order matters</strong> - Put frequently changing files at the end for better caching<br>
+            ✅ <strong>Combine RUN commands</strong> - Use `&&` to reduce layers: `RUN apt update && apt install -y
+            curl`<br>
+            ✅ <strong>Use specific tags</strong> - `FROM node:18-alpine` not `FROM node:latest`<br>
+            ✅ <strong>Clean up in same layer</strong> - Remove temp files in same RUN command<br>
+            ✅ <strong>Prefer COPY over ADD</strong> - Unless you need extraction or URLs<br>
+            ✅ <strong>Use .dockerignore</strong> - Exclude unnecessary files (like .git, node_modules)<br>
+            ✅ <strong>Switch to non-root user</strong> - Use `USER` instruction for security
+        </div>
+
+        <!-- ======================== Quick Reference ======================== -->
+        <h2>📊 Quick Reference Table</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Purpose</th>
+                    <th>When to Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FROM</td>
+                    <td>Base image</td>
+                    <td>First line of every Dockerfile</td>
+                </tr>
+                <tr>
+                    <td>WORKDIR</td>
+                    <td>Set working directory</td>
+                    <td>Before copying code</td>
+                </tr>
+                <tr>
+                    <td>COPY</td>
+                    <td>Copy files</td>
+                    <td>To add application code</td>
+                </tr>
+                <tr>
+                    <td>RUN</td>
+                    <td>Run commands</td>
+                    <td>To install dependencies</td>
+                </tr>
+                <tr>
+                    <td>CMD</td>
+                    <td>Default command</td>
+                    <td>To define how container runs</td>
+                </tr>
+                <tr>
+                    <td>EXPOSE</td>
+                    <td>Document port</td>
+                    <td>To show which port app uses</td>
+                </tr>
+                <tr>
+                    <td>ENV</td>
+                    <td>Environment variables</td>
+                    <td>For configuration</td>
+                </tr>
+                <tr>
+                    <td>ARG</td>
+                    <td>Build-time vars</td>
+                    <td>For version, build flags</td>
+                </tr>
+                <tr>
+                    <td>VOLUME</td>
+                    <td>Persistent storage</td>
+                    <td>For database, uploads</td>
+                </tr>
+                <tr>
+                    <td>USER</td>
+                    <td>Switch user</td>
+                    <td>For security (avoid root)</td>
+                </tr>
+                <tr>
+                    <td>HEALTHCHECK</td>
+                    <td>Monitor app</td>
+                    <td>For production containers</td>
+                </tr>
+                <tr>
+                    <td>ENTRYPOINT</td>
+                    <td>Main process</td>
+                    <td>For CLI tools, scripts</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer>
+            ⚡ <strong>Made by: Arvinder Pal</strong> — Dockerfile Complete Guide | Golang Training
+        </footer>
+    </div>
+</body>
+
+</html>
