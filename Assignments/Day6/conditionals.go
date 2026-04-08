@@ -1,7 +1,10 @@
 // Switch Statement & Conditionals
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	fmt.Println("Q1. Vowel Checker")
@@ -9,6 +12,25 @@ func main() {
 	// - Handle both uppercase and lowercase letters
 	// - Use multiple values in cases (a, e, i, o, u, A, E, I, O, U)
 	// - For non-alphabetic characters → "Not a letter"
+
+	var ch rune
+	fmt.Print("Enter a character:")
+	fmt.Scanf("%c",&ch)
+
+	switch ch{
+		case 'a','e','i','o','u',
+		      'A','E','I','O','U':
+			  fmt.Println("vowel")
+
+		default :
+			if (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') {
+			fmt.Println("Consonant")
+		} else {
+			fmt.Println("Not a letter")
+		}
+
+	}
+
 
 	fmt.Println("Q2. BMI Categorization")
 	// Calculate BMI (Body Mass Index) using formula: BMI = weight(kg) / (height(m))²
@@ -18,6 +40,30 @@ func main() {
 	// - 25 ≤ BMI < 30 → "Overweight"
 	// - BMI ≥ 30 → "Obese"
 	// Print the BMI value and category.
+
+	var weight,height float32
+
+	fmt.Print("Enter weight and height: ")
+	fmt.Scan(&weight, &height)
+	height = height / 100     // Convert cm to meters
+
+	bmi:= (weight)/(height*height)
+	fmt.Printf("BMI %.2f\n",bmi)
+
+	switch{
+	case bmi<18.5:
+		fmt.Println("underweight")
+
+	case bmi>=18.5&& bmi<25:
+		fmt.Println("normal")
+
+	case bmi>=23&& bmi<30:
+		fmt.Println("overweight")	
+
+	default:
+		fmt.Println("obese")
+	}
+
 
 	fmt.Println("Q3. Ticket Price Calculator")
 	// Calculate ticket price based on:
@@ -31,6 +77,39 @@ func main() {
 	// - Seniors: 30% discount
 	// - Students (adult age): 20% discount (only on weekdays)
 	// - Weekend: +$2 extra
+
+	var age int
+	var dayType string
+	var isStudent string
+
+	baseprice:=10.0
+	price:=baseprice
+
+	fmt.Println("Enter age")
+	fmt.Scan(&age)
+
+	fmt.Println("Enter day type(weekend/weekday)")
+	fmt.Scan(&dayType)
+
+	fmt.Println("Are you a student(yes/no)")
+	fmt.Scan(&isStudent)
+
+	dayType=strings.ToLower(dayType)
+	isStudent=strings.ToLower(isStudent)
+
+	if age<12{
+		price=price*0.5
+	}else if age>=65{
+		price=price*0.7
+	}else if age>=12 && age<=64 && dayType=="weekday" && isStudent=="yes"{
+		price=price*0.8
+	}
+
+	if dayType=="weekend"{
+		price=price+2
+	}
+	fmt.Printf("Final Ticket Price: $%.2f\n", price)
+
 
 	fmt.Println("Q4. Roman Numeral to Integer")
 
@@ -47,6 +126,36 @@ func main() {
 	// - X → 10
 	// For invalid input → "Invalid Roman numeral"
 
+	var roman string
+	fmt.Print("Enter a roman numeral:=")
+	fmt.Scan(&roman)
+
+	switch roman{
+		case "I":
+			fmt.Println(1)
+		case "II":
+			fmt.Println(2)
+		case "III":
+			fmt.Println(3)
+		case "IV":
+			fmt.Println(4)
+		case "V":
+			fmt.Println(5)
+		case "VI":
+			fmt.Println(6)
+		case "VII":
+			fmt.Println(7)
+		case "VIII":
+			fmt.Println(8)
+		case "IX":
+			fmt.Println(9)
+		case "X":
+			fmt.Println(10)
+		default:
+			fmt.Println("Invalid numeral")
+		
+	}
+
 	fmt.Println("Q5. Banking Transaction System")
 	// Simulate banking operations:
 	// - Input: transaction type ("deposit", "withdraw", "balance", "transfer")
@@ -56,35 +165,79 @@ func main() {
 	// - For invalid transaction → "Invalid operation"
 	// Use switch with short statement to initialize variables.
 
+	balance := 1000
+	var op string
+
+	fmt.Print("Enter operation: ")
+	fmt.Scan(&op)
+
+	switch op {
+
+	case "deposit":
+		var amount int
+		fmt.Scan(&amount)
+		balance = balance + amount
+		fmt.Println("Balance:", balance)
+
+	case "withdraw":
+		var amount int
+		fmt.Scan(&amount)
+		if amount <= balance {
+			balance = balance - amount
+			fmt.Println("Balance:", balance)
+		} else {
+			fmt.Println("Insufficient balance")
+		}
+
+	case "balance":
+		fmt.Println("Balance:", balance)
+
+	case "transfer":
+		var amount int
+		fmt.Scan(&amount)
+		if amount <= balance {
+			balance = balance - amount
+			fmt.Println("Transfer done")
+			fmt.Println("Balance:", balance)
+		} else {
+			fmt.Println("Insufficient balance")
+		}
+
+	default:
+		fmt.Println("Invalid operation")
+	}
+
+
+
 	fmt.Println(" - - - - - - - - - - Theory Questions - - - - - - - - - - - ")
 
 	// Section 1: Multiple Choice Questions
 
-	// 1. What happens when no case matches in a switch statement?
+	// 1. What happens when no case matches in a switch statement?-----------C
 	//    a) Compilation error
 	//    b) Runtime error
 	//    c) Executes default case (if present)
 	//    d) Executes first case
 
-	// 2. How does Go handle fallthrough in switch?
+	// 2. How does Go handle fallthrough in switch?--------------------------C
 	//    a) Automatic fallthrough by default
 	//    b) Manual using `continue`
 	//    c) Manual using `fallthrough`
 	//    d) No fallthrough allowed
 
-	// 3. Which is NOT allowed in Go's if condition?
+	// 3. Which is NOT allowed in Go's if condition?-------------------------B
 	//    a) if true { ... }
 	//    b) if 1 { ... }
 	//    c) if x > 5 { ... }
 	//    d) if condition() { ... }
 
-	// 4. What is the scope of a variable declared in switch short statement?
+	// 4. What is the scope of a variable declared in switch short statement?----------C
 	//    a) Entire program
 	//    b) Only the case where declared
 	//    c) Entire switch block
 	//    d) Only the function
 
-	// 5. Which is better for checking same variable against many values?
+	// 5. Which is better for checking same variable against many values?---------------B
 	//    a) Multiple if statements
 	//    b) Switch statement
 	//    c) Both are equal
@@ -92,10 +245,10 @@ func main() {
 
 	// Section 2: True/False Questions
 
-	// 1. T/F: Go requires braces {} for if blocks
-	// 2. T/F: Switch cases in Go are case-sensitive for strings
-	// 3. T/F: You can use float values in switch cases
-	// 4. T/F: Default case is mandatory in switch
-	// 5. T/F: Tagless switch can have conditions in cases
+	// 1. T/F: Go requires braces {} for if blocks    -------------------------True
+	// 2. T/F: Switch cases in Go are case-sensitive for strings --------------True
+	// 3. T/F: You can use float values in switch cases -----------------------True
+	// 4. T/F: Default case is mandatory in switch ----------------------------False
+	// 5. T/F: Tagless switch can have conditions in cases --------------------True
 
 }
