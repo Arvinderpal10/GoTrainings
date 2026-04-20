@@ -1,5 +1,9 @@
 package main
 
+//import "fmt"
+
+//var salary = 10000
+
 /*
 =====================================================
 Day 3 – Golang Training - Coding Questions
@@ -93,9 +97,113 @@ Day 3 – Golang Training - Coding Questions
 */
 
 // Q20. Declare variables of type int, float64, string, bool,
-//      slice, and pointer without initialization.
-//      Print their values and check which ones are nil.
+//
+//	slice, and pointer without initialization.
+//	Print their values and check which ones are nil.
+
+//Q7 to Q10 solutions
+/*func varUse() {
+	a := 50
+	fmt.Println("Inside varUse(), a =", a)
+}
+func main() {
+
+
+	x := 10
+	fmt.Println("Inside main(), x =", x)
+
+	{
+		y := 20
+		fmt.Println("Inside block, y =", y)
+	}
+
+	fmt.Println("Global variable salary =", salary)
+	varUse()
+} */
+
+//Q1 to Q6 solutions
+/*func main() {
+	// Write solutions here
+	// A1
+	var x int = 200
+	fmt.Println(x)
+	// A2
+	y := 4000
+	fmt.Println(y)
+	// A3
+	var a int
+	a = 300
+	fmt.Println(a)
+	// A4
+	slogan := "Variables in Go - Day 3"
+	fmt.Println(slogan)
+	// A5
+	var x2 int = 10
+	fmt.Println(x2)
+	// x2 = "Hello" // compiler error
+	// A6
+	y1 := "Go Language"
+	fmt.Println(y1)
+	// y1 = 100 // compiler error
+
+} */
+
+// Q11 to Q14 solutions
+/*var (
+	age    int = 21
+	salary int = 100000000
+	id     int = 12345
+)
 
 func main() {
-	// Write solutions here
-}
+	var (
+		name string = "Swaroop"
+		city string = "Hyderabad"
+		pin  int    = 500032
+	)
+	fmt.Println("Age:", age)
+	fmt.Println("Salary:", salary)
+	fmt.Println("ID:", id)
+
+	fmt.Println("Name:", name)
+	fmt.Println("City:", city)
+	fmt.Println("PIN:", pin)
+}*/
+
+// Q15 to Q17 solutions
+/*func main() {
+	b, c := 10, 20
+	fmt.Println(" b = ", b, " c = ", c)
+	b, c = 30, 40
+	fmt.Println("Updated b = ", b, " Updated c = ", c)
+	b, c = c, b
+	fmt.Println("Swapped b = ", b, " Swapped c = ", c)
+
+}*/
+
+// Q18 and Q19 solutions
+/*func main() {
+	x, y := 100, 2000
+	//x, y := 300, 4000 // error
+	fmt.Println("x :=", x, " y :=", y)
+	x, z := 500, 6000
+	fmt.Println("x :=", x, " z :=", z)
+
+}*/
+
+// Q20 solution
+/*func main() {
+	var i int
+	var f float64
+	var s string
+	var b bool
+	var sl []int
+	var p *int
+	fmt.Println("int=", i)
+	fmt.Println("flaot64=", f)
+	fmt.Println("string=", s)
+	fmt.Println("bool=", b)
+	fmt.Println("slice=", sl)
+	fmt.Println("pointer=", p)
+
+}*/
